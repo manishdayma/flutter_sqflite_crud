@@ -121,7 +121,6 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(
                                       width: 20,
                                     ),
-                                    Text("${item['_id']}"),
                                     Text("${item['name']}"),
                                     Spacer(),
                                     IconButton(

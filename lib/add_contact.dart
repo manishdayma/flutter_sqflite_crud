@@ -276,7 +276,7 @@ class _AddContactState extends State<AddContact> {
       DatabaseHelper.columnMobile: _mobileNumber.text,
       DatabaseHelper.columnEmail: _emailAddress.text,
       DatabaseHelper.columnCategory: currentCategory,
-      DatabaseHelper.columnProfile: imageEncoded
+      DatabaseHelper.columnProfile: "imageEncoded"
     };
     print('insert stRT');
     currentCategory="";

@@ -50,8 +50,8 @@ class _ContactListState extends State<ContactList> {
                           SizedBox(
                             width: 20,
                           ),
-                          Text("${item['_id']}"),
                           Text("${item['name']}"),
+                          Text("${item['lname']}"),
                           Spacer(),
                           IconButton(
                             onPressed: null,
