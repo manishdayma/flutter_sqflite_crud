@@ -1,16 +1,26 @@
-# flutter_crud
 
-A new Flutter project.
 
-## Getting Started
+# Flutter Sql Crud Made In Flutter 2.8 with null safety
 
-This project is a starting point for a Flutter application.
+# Please leave a STAR if you found this useful..
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+**Fonts**
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Poppins [link](https://fonts.google.com/specimen/Poppins)
+
+
+## ScreenShoots
+
+## add category page
+<img height="480px" src="screenshots/1.jpg">
+<br>
+
+
+## add contact page
+<img height="480px" src="screenshots/2.jpg"><img height="480px" src="screenshots/3.jpg"><img height="480px" src="screenshots/4.jpg">
+<br>
+
+## contact list page
+<img height="480px" src="screenshots/3.jpg"><img height="480px" src="screenshots/6.jpg">
+<br>
