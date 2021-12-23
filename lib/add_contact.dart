@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/contact_list.dart';
 import 'package:image_picker/image_picker.dart';
@@ -84,8 +85,6 @@ class _AddContactState extends State<AddContact> {
 
                           if (pickedFile != null) {
                             imageBytes = pickedFile.readAsBytes();
-                            final imageData = await _controller.toPngBytes(); // must be called in async method
-                             imageEncoded = base64.encode(imageData!);
                             setState(() {
                               imageFile = File(pickedFile.path);
                             });
@@ -269,6 +268,10 @@ class _AddContactState extends State<AddContact> {
   }
 
   void _insert() async {
+    var base64image;
+    if(imageFile?.exists() != null){
+       base64image = base64Encode(imageFile!.readAsBytesSync().toList());
+    }
 
     // row to insert
     Map<String, dynamic> row = {DatabaseHelper.columnName: _firstName.text,
@@ -276,24 +279,27 @@ class _AddContactState extends State<AddContact> {
       DatabaseHelper.columnMobile: _mobileNumber.text,
       DatabaseHelper.columnEmail: _emailAddress.text,
       DatabaseHelper.columnCategory: currentCategory,
-      DatabaseHelper.columnProfile: "imageEncoded"
+      DatabaseHelper.columnProfile: base64image,
     };
     print('insert stRT');
     currentCategory="";
 
     final id = await dbHelper.insertContact(row);
-    print('inserted row id: $id');
+    if (kDebugMode) {
+      print('inserted row id: $id');
+    }
     _query();
     Navigator.push(context, MaterialPageRoute(builder: (_)=>ContactList()));
   }
 
   void _query() async {
     final allRows = await dbHelper.queryAllRows();
-    print('query all rows:');
-    allRows.forEach(print);
-    allRows.forEach((element) {
+    if (kDebugMode) {
+      print('query all rows:');
+    }
+    for (var element in allRows) {
       allCategoryData.add(element["name"]);
-    });
+    }
     setState(() {});
   }
 }

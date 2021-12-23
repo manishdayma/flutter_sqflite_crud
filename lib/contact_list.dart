@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/mydrawal.dart';
 
@@ -12,7 +15,6 @@ class ContactList extends StatefulWidget {
 }
 
 class _ContactListState extends State<ContactList> {
-
   final dbHelper = DatabaseHelper.instance;
   List<Map<String, dynamic>> allCategoryData = [];
 
@@ -21,6 +23,7 @@ class _ContactListState extends State<ContactList> {
     super.initState();
     _query();
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,11 +37,13 @@ class _ContactListState extends State<ContactList> {
         body: Column(
           children: [
             Text(""),
-            Expanded(child: ListView.builder(
+            Expanded(
+                child: ListView.builder(
               itemCount: allCategoryData.length,
               padding: EdgeInsets.zero,
               itemBuilder: (_, index) {
                 var item = allCategoryData[index];
+                Uint8List bytes = base64Decode(item['profile']);
                 return Container(
                   color: MyColors.orangeTile,
                   padding: EdgeInsets.zero,
@@ -50,6 +55,7 @@ class _ContactListState extends State<ContactList> {
                           SizedBox(
                             width: 20,
                           ),
+                          CircleAvatar(child: Image.memory(bytes,fit: BoxFit.cover,),minRadius: 20,maxRadius: 25,),
                           Text("${item['name']}"),
                           Text("${item['lname']}"),
                           Spacer(),
@@ -79,6 +85,7 @@ class _ContactListState extends State<ContactList> {
       ),
     );
   }
+
   void _query() async {
     final allRows = await dbHelper.queryAllRowsofContact();
     print('query all rows:');
@@ -86,6 +93,7 @@ class _ContactListState extends State<ContactList> {
     allCategoryData = allRows;
     setState(() {});
   }
+
   void _delete(int id) async {
     // Assuming that the number of rows is the id for the last row.
     final rowsDeleted = await dbHelper.deleteContact(id);
