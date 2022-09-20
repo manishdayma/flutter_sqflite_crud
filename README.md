@@ -1,26 +1,16 @@
 
+# 🔥🔥 Flutter Sql Crud Using Sqflite or Sql (Insert,Update,Delete,Select) 🔥🔥
 
-# Flutter Sql Crud Made In Flutter 2.8 with null safety
+Star⭐ the repo if you like what you like more stuff on flutter 😉.
 
-# Please leave a STAR if you found this useful..
+## ✨ Requirements
+* Any Operating System (ie. MacOS X, Linux, Windows)
+* Any IDE with Flutter SDK installed (ie. IntelliJ, Android Studio, VSCode etc)
+* A little knowledge of Dart and Flutter.
 
-
-**Fonts**
-
-- Poppins [link](https://fonts.google.com/specimen/Poppins)
-
-
-## ScreenShoots
-
-## add category page
-<img height="480px" src="screenshots/1.jpg">
-<br>
-
-
-## add contact page
-<img height="480px" src="screenshots/2.jpg"><img height="480px" src="screenshots/3.jpg"><img height="480px" src="screenshots/4.jpg">
-<br>
-
-## contact list page
-<img height="480px" src="screenshots/3.jpg"><img height="480px" src="screenshots/6.jpg">
+## Some Screenshots For You 💖
+<img height="480px" src="screenshots/1.jpg">|
+<img height="480px" src="screenshots/2.jpg">
+<img height="480px" src="screenshots/3.jpg">
+<img height="480px" src="screenshots/3.jpg">
 <br>
